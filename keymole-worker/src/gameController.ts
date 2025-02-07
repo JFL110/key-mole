@@ -5,8 +5,8 @@ const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
 const ALPHABET = 'abcdefghijklmnopqrstuvwxyz'.split('');
 
-const WHACKS_PER_ROUND = 2
-const ROUNDS_PER_GAME = 2
+const WHACKS_PER_ROUND = 10
+const ROUNDS_PER_GAME = 4
 const MOLE_MISSPRESS_PENALTY = 250
 const WHACKER_MISPRESS_PENALTY = 250
 const WHACKER_PRESS_BONUS = 250
