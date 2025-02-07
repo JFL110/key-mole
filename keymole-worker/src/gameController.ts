@@ -268,20 +268,21 @@ export class GameController extends DurableObject<Env> {
     private onWhackerPressKey(player: GamePlayer, message: GameMessageKeyPress) {
         const moleKey = this.gameState.moleKeys.find(k => k.key === message.key)
 
-        if (moleKey) {
-            // Whacker valid press
-            const delta = Date.now() - moleKey.pressedAt
-            this.gameState.moleKeys = this.gameState.moleKeys.filter(k => k.key !== message.key)
-            player.whackerPresses++
-            this.gameState.players.find(p => p.role === 'mole')!.moleDelta += delta
-        } else {
+        if (!moleKey) {
             // Whacker misplace
             this.websocketController.sendToAll({
                 type: 'rumble',
                 rumbleIds: [`player-${player.id}`, `key-${message.key}`]
             })
             player.whackerMispresses++;
+            return
         }
+
+        // Whacker valid press
+        const delta = Date.now() - moleKey.pressedAt
+        this.gameState.moleKeys = this.gameState.moleKeys.filter(k => k.key !== message.key)
+        player.whackerPresses++
+        this.gameState.players.find(p => p.role === 'mole')!.moleDelta += delta
 
         // Assess if round end
         this.gameState.whacksInRound++
