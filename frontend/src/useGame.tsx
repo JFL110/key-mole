@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import useWebSocket from 'react-use-websocket'
 import confetti from 'canvas-confetti'
+import useSelfUrl from './useSelfUrl';
 
 const ALPHABET = 'abcdefghijklmnopqrstuvwxyz'.split('');
 
@@ -94,8 +95,9 @@ export const GameContextProvider = ({ children }: { children: React.ReactNode })
     }
 
     // Websocket
+    const selfUrl = useSelfUrl()
     const { sendJsonMessage, readyState } = useWebSocket(
-        `ws://localhost:4003/api/websocket?gameId=${gameId}&playerId=${playerId}`,
+        `ws://${selfUrl.withoutProtocol}/api/websocket?gameId=${gameId}&playerId=${playerId}`,
         {
             shouldReconnect: () => true,
             onError: (event) => {
