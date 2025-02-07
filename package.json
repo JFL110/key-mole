@@ -8,7 +8,7 @@
   "scripts": {
     "test": "npm test -ws --if-present -- --watch=false",
     "typecheck": "npm run typecheck -ws --if-present",
-    "start:worker": "cd worker && npm start",
+    "start:worker": "cd keymole-worker && npm start",
     "start:frontend": "cd frontend && npm start",
     "start": "npm-run-all --parallel start:worker start:frontend",
     "gen": "npm run cf-typegen -ws --if-present",

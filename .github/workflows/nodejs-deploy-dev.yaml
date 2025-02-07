@@ -25,7 +25,6 @@ jobs:
     - run: npm run gen
     - run: npm run typecheck
     - run: npm run deploy:dev
-    - run: npm run build
     - uses: ryand56/r2-upload-action@latest
       with:
         r2-account-id: ${{ secrets.R2_ACCOUNT_ID }}
