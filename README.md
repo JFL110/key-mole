@@ -1,2 +1,2 @@
-# key-mole
-A Cloudflare durable objects demo game
+# Key Mole
+A Cloudflare durable objects demo game.

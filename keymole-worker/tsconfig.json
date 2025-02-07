@@ -1,0 +1,14 @@
+{
+	"extends": "../tsconfig.json",
+	"compilerOptions": {
+		"module": "es2022",
+		"moduleResolution": "Bundler",
+		"types": [
+			"@cloudflare/workers-types/2023-07-01",
+			"./src/worker-types.d.ts"
+		],
+	},
+	"exclude": [
+		"./test/**"
+	]
+}
