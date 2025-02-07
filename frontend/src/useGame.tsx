@@ -96,8 +96,9 @@ export const GameContextProvider = ({ children }: { children: React.ReactNode })
 
     // Websocket
     const selfUrl = useSelfUrl()
+    const protocol = selfUrl.href.startsWith('https') ? 'wss' : 'ws'
     const { sendJsonMessage, readyState } = useWebSocket(
-        `ws://${selfUrl.withoutProtocol}/api/websocket?gameId=${gameId}&playerId=${playerId}`,
+        `${protocol}://${selfUrl.withoutProtocol}/api/websocket?gameId=${gameId}&playerId=${playerId}`,
         {
             shouldReconnect: () => true,
             onError: (event) => {
