@@ -1,0 +1,20 @@
+{
+  "name": "keymole-worker",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "deploy": "wrangler deploy",
+    "start": "wrangler dev -e local --port 4003 --inspector-port 10232",
+    "test": "vitest --config ./test/vitest.config.mts",
+    "typecheck": "tsc --project ./tsconfig.json",
+    "cf-typegen": "wrangler types ./src/worker-types.d.ts -e local"
+  },
+  "devDependencies": {
+    "@cloudflare/vitest-pool-workers": "^0.5.32",
+    "@cloudflare/workers-types": "^4.20241127.0",
+    "typescript": "^5.5.2",
+    "vitest": "2.1.8",
+    "wrangler": "^3.91.0"
+  },
+  "dependencies": {}
+}

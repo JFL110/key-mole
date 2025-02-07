@@ -1,0 +1,50 @@
+# Logs
+
+logs
+_.log
+npm-debug.log_
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# Coverage directory used by tools like istanbul
+
+coverage
+\*.lcov
+
+# Dependency directories
+
+node_modules/
+
+# TypeScript cache
+
+\*.tsbuildinfo
+
+# Optional npm cache directory
+
+.npm
+
+# Optional eslint cache
+
+.eslintcache
+
+.node_repl_history
+
+# Output of 'npm pack'
+
+\*.tgz
+
+# Stores VSCode versions used for testing VSCode extensions
+.vscode-test
+
+# wrangler project
+.dev.vars
+.wrangler/
+.local-data
+dist
+*.tsbuildinfo
+
+local-data/
+package-lock.json
+

@@ -1,0 +1,124 @@
+body {
+  margin: 0;
+  padding-top: 2em;
+  display: flex;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  min-width: 600px;
+}
+
+.player-score-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.rumbler:has(.player-box):not(:last-child) > .player-box{
+  margin-right: 0.5em;
+}
+
+.key-button {
+  margin: 0.5em !important;
+  padding: 1.5em;
+}
+
+.score-item {
+  margin-right: 0.5em;
+}
+
+.player-star {
+  position: absolute !important;
+  top: -20px;
+  left: -15px;
+}
+
+.relative-badge {
+  position: unset !important;
+}
+
+.rumbler {
+  display: contents;
+}
+
+.rumble>* {
+  animation: shake 0.5s cubic-bezier(.36, .07, .19, .97) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+.game-process-container {
+  margin-right: 0.2em;
+}
+
+.lobby-player-star {
+  margin-right: 1.5em;
+}
+
+.lobby-player-star:before {
+  top: -4px;
+}
+
+.hidden-star {
+  opacity: 0;
+}
+
+#player-name {
+  display: inline;
+  width: 250px;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+.lobby-player-row {
+  height: 65px;
+  display: flex;
+  align-items: center;
+  margin-left: 5em;
+}
+
+.copy-button {
+  margin-left: 1.5em;
+  margin-top: -0.5em;
+  width: 150px;
+}
+
+.nes-container.with-title > .title {
+  margin-top: -2.3rem !important;
+}
+
+a {
+  color: inherit; 
+  text-decoration: inherit; 
+}
+
+
+@keyframes shake {
+
+  10%,
+  90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%,
+  80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%,
+  50%,
+  70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%,
+  60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
