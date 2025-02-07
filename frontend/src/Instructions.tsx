@@ -8,7 +8,7 @@ const Instructions = () => (
         <span>After some keys have been whacked, the players will swap.</span>
         <br />
         <br />
-        <span>Points are awarded to the mole for the time their keys are up and deducted for mis-prssses.</span>
+        <span>Points are awarded to the mole for the time their keys are up and deducted for mis-presses.</span>
     </NesContainer>
 )
 
