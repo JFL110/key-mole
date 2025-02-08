@@ -29,7 +29,7 @@ const PlayerRow = ({ player }: { player: GamePlayer }) => {
         : player.name
 
     return <div key={player.id} className="lobby-player-row">
-        Player {nameField} {getPlayerStatus(player)}
+        <span className="lobby-player-label">Player</span> {nameField} {getPlayerStatus(player)}
         <i className={classNames('nes-icon', 'star', 'is-small', 'lobby-player-star', !isSelf && 'hidden-star')}></i>
     </div>
 }
@@ -49,6 +49,7 @@ const GameUrl = () => {
     >
         <span>Share this URL for other players to join the game!</span>
         <br /><br />
+        <div className="lobby-url-copy-container">
         <span>{selfUrl}</span>
         <button
             type="button"
@@ -57,6 +58,7 @@ const GameUrl = () => {
         >
             {copied ? 'Copied!' : 'Copy'}
         </button>
+        </div>
     </NesContainer>
 }
 

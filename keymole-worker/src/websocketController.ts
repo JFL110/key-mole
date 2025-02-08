@@ -47,6 +47,7 @@ export class WebsocketController {
             })
     }
 
+
     async open(actorId: string) {
         const webSocketPair = new WebSocketPair();
         const [client, server] = Object.values(webSocketPair);
@@ -65,7 +66,14 @@ export class WebsocketController {
             this.connections = this.connections.filter(s => s.id !== id)
             console.log(`Closing connection to ${actorId}:${id} - now have ${this.connections.length} connections.`)
             try {
-                server.close(closeEvent.code, "Closing WebSocket");
+                new Promise((resolve, reject) => {
+                    try {
+                        server.close(closeEvent.code, "Closing WebSocket");
+                        resolve(true);
+                    } catch (err) {
+                        reject(err)
+                    }
+                });
             } catch (err) {
                 console.warn('Error closing Websocket, ignoring', err)
             }

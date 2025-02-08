@@ -2,7 +2,6 @@ body {
   margin: 0;
   padding-top: 2em;
   display: flex;
-  min-width: 320px;
   min-height: 100vh;
 }
 
@@ -11,7 +10,6 @@ body {
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
-  min-width: 600px;
 }
 
 .player-score-container {
@@ -19,7 +17,7 @@ body {
   justify-content: space-between;
 }
 
-.rumbler:has(.player-box):not(:last-child) > .player-box{
+.rumbler:has(.player-box):not(:last-child)>.player-box {
   margin-right: 0.5em;
 }
 
@@ -72,7 +70,6 @@ body {
 #player-name {
   display: inline;
   width: 250px;
-  margin-left: 1em;
   margin-right: 1em;
 }
 
@@ -85,19 +82,91 @@ body {
 
 .copy-button {
   margin-left: 1.5em;
-  margin-top: -0.5em;
   width: 150px;
 }
 
-.nes-container.with-title > .title {
+.nes-container.with-title>.title {
   margin-top: -2.3rem !important;
 }
 
 a {
-  color: inherit; 
-  text-decoration: inherit; 
+  color: inherit;
+  text-decoration: inherit;
 }
 
+.lobby-url-copy-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 800px) {
+  .lobby-url-copy-container {
+    flex-direction: column;
+  }
+
+  .copy-button {
+    margin-top: 1em;
+  }
+
+  .lobby-player-row {
+    margin-left: 0;
+  }
+
+  #player-name {
+    width: 150px;
+  }
+
+  .lobby-player-label {
+    display: none;
+  }
+
+  .player-box {
+    padding: 1rem 0rem;
+  }
+
+  .player-box.with-title>.title {
+    margin-top: -1.6rem !important;
+    font-size: 0.8rem  !important;
+    margin-left: 0.9rem  !important;
+  }
+
+  .key-button {
+    padding: 1em;
+  }
+
+  .player-score-container {
+    overflow: hidden;
+    max-width: 100vw;
+    padding-top: 0.8rem;
+    margin-left: -1rem;
+    padding-left: 1rem;
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  #root {
+    padding: 0.5em;
+  }
+  .nes-container {
+    padding: 1.5rem 1rem;
+  }
+  #player-name {
+    width: 120px;
+    padding-left: 0.1rem;
+    padding-right: 0.1rem;
+  }
+  .player-box.with-title>.title {
+    margin-top: -2.3rem !important;
+  }
+}
+
+@media (max-width: 400px) {
+  .key-button {
+    padding: 0.5em;
+  }
+}
 
 @keyframes shake {
 

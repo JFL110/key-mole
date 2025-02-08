@@ -10,7 +10,7 @@ const ROUNDS_PER_GAME = 4
 const MOLE_MISSPRESS_PENALTY = 250
 const WHACKER_MISPRESS_PENALTY = 250
 const WHACKER_PRESS_BONUS = 250
-const PLAYER_RECONNECT_MS = 2000
+const PLAYER_RECONNECT_MS = 5000
 const KEYS_COUNT = 15
 
 export class GameController extends DurableObject<Env> {
@@ -118,7 +118,7 @@ export class GameController extends DurableObject<Env> {
     }
 
     private onPlayerInit(player: GamePlayer) {
-        console.log('on player init')
+        console.log(`Player ${player.id} init`)
         player.status = 'active'
         this.websocketController.sendTo(player.id, {
             type: 'set_self_id',

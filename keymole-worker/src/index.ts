@@ -25,6 +25,7 @@ export default {
 
             const gameId = url.searchParams.get('gameId')
             if (!gameId || gameId === 'null') {
+                console.warn('Bad request - missing gameId')
                 return new Response(null, { status: 400, statusText: 'Missing GameId' });
             }
 
