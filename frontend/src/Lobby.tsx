@@ -50,7 +50,7 @@ const GameUrl = () => {
         <span>Share this URL for other players to join the game!</span>
         <br /><br />
         <div className="lobby-url-copy-container">
-        <span>{selfUrl}</span>
+        <span className="lobby-url">{selfUrl}</span>
         <button
             type="button"
             className="nes-btn is-primary copy-button"
