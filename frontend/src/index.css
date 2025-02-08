@@ -100,6 +100,13 @@ a {
   align-items: center;
 }
 
+.player-box.with-title>.title {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 200px;
+  display: inherit;
+}
+
 @media (max-width: 800px) {
   .lobby-url-copy-container {
     flex-direction: column;
@@ -122,13 +129,14 @@ a {
   }
 
   .player-box {
-    padding: 1rem 0rem;
+    padding: 1rem 0rem !important;
   }
 
   .player-box.with-title>.title {
     margin-top: -1.6rem !important;
-    font-size: 0.8rem  !important;
-    margin-left: 0.9rem  !important;
+    font-size: 0.8rem !important;
+    margin-left: 0.9rem !important;
+    max-width: 140px;
   }
 
   .key-button {
@@ -143,28 +151,42 @@ a {
     padding-left: 1rem;
     margin-top: 0;
   }
+
+  .lobby-url {
+    word-wrap: break-word
+  }
 }
 
 @media (max-width: 480px) {
   #root {
     padding: 0.5em;
+    max-width: 95vw;
   }
+
   .nes-container {
     padding: 1.5rem 1rem;
   }
+
   #player-name {
     width: 120px;
     padding-left: 0.1rem;
     padding-right: 0.1rem;
   }
+
   .player-box.with-title>.title {
-    margin-top: -2.3rem !important;
+    max-width: 110px;
   }
 }
 
 @media (max-width: 400px) {
   .key-button {
     padding: 0.5em;
+  }
+  .nes-badge {
+    width: unset !important;
+  }
+  .player-box {
+    padding: 1rem 0.2rem !important;
   }
 }
 
