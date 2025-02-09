@@ -113,6 +113,10 @@ a {
   align-items: center;
 }
 
+.lobby-player-label {
+  margin-right: 1em
+}
+
 @media (max-width: 800px) {
   .lobby-url-copy-container {
     flex-direction: column;
