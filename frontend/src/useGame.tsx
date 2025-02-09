@@ -44,6 +44,7 @@ interface GameContext {
     onPressKey: (key: string) => void
     onReady: () => void
     toast: string | null
+    error: boolean
     rumble: {
         isActive: (id: string) => boolean
         activate: (ids: string[]) => void
@@ -61,6 +62,7 @@ const Context = React.createContext<GameContext>({
     onPressKey: () => { },
     onReady: () => { },
     toast: null,
+    error: false,
     rumble: {
         isActive: () => false,
         activate: () => { },
@@ -82,8 +84,9 @@ export const GameContextProvider = ({ children }: { children: React.ReactNode })
     const [toast, setToast] = useState<string | null>(null)
     const [connected, setConnected] = useState(false)
     const [rumbleIds, setRumbleIds] = useState<string[]>([])
+    const [error, setError] = useState(false)
 
-    // Derrived state
+    // Derived state
     const gameIsActive = gameState?.status === 'active'
     const selfPlayer = (gameState && self ? gameState.players.find(p => p.id === selfId) : null) ?? null
 
@@ -103,8 +106,10 @@ export const GameContextProvider = ({ children }: { children: React.ReactNode })
             shouldReconnect: () => true,
             onError: (event) => {
                 console.log('Got Error', event)
+                setError(true)
             },
             onMessage: (event) => {
+                setError(false)
                 const message = JSON.parse(event.data)
 
                 if (!message) {
@@ -191,7 +196,8 @@ export const GameContextProvider = ({ children }: { children: React.ReactNode })
         toast,
         rumble,
         sendNewGameLink,
-        setPlayerName
+        setPlayerName,
+        error
     }
 
     return <Context.Provider value={context}>{children}</Context.Provider>
