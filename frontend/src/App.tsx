@@ -9,12 +9,30 @@ function App() {
     connected,
     gameState,
     selfPlayer,
+    error,
   } = useGame()
 
+  if (error) {
+    return <div className='v-center'>
+      <div>
+        <h1><a href="/">Key Mole</a></h1>
+        <br />
+        <h3>Unable to load this game, maybe it's already in progress.</h3>
+        <br />
+        <a
+          href="/"
+          className='nes-btn'
+        >
+          Go Back
+        </a>
+      </div>
+    </div>
+  }
+
   if (!connected || !gameState || !selfPlayer) {
-    return <>
+    return <div className='v-center'>
       <h2>Loading...</h2>
-    </>
+    </div>
   }
 
   if (gameState.status === 'not_started') {
