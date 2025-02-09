@@ -153,7 +153,10 @@ a {
   }
 
   .lobby-url {
-    word-wrap: break-word
+    word-wrap: break-word;
+    max-width: 80vw;
+    margin-left: 0.25em;
+    margin-right: 0.25em;
   }
 }
 
@@ -182,9 +185,11 @@ a {
   .key-button {
     padding: 0.5em;
   }
+
   .nes-badge {
     width: unset !important;
   }
+
   .player-box {
     padding: 1rem 0.2rem !important;
   }
