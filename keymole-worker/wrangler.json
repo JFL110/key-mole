@@ -35,7 +35,7 @@
     "dev": {
       "name": "keymole-dev",
       "vars": {
-        "FRONTEND_HOST": "pub-27a25e5343e3486fb70b81dab7e05d7d.r2.dev",
+        "FRONTEND_HOST": "r2-keymole.jamesleach.dev",
         "FRONTEND_PROTOCOL": "https:",
         "FRONTEND_PATH_PREFIX": "/dev"
       },
@@ -51,7 +51,7 @@
     "prod": {
       "name": "keymole-prod",
       "vars": {
-        "FRONTEND_HOST": "pub-27a25e5343e3486fb70b81dab7e05d7d.r2.dev",
+        "FRONTEND_HOST": "r2-keymole.jamesleach.dev",
         "FRONTEND_PROTOCOL": "https:",
         "FRONTEND_PATH_PREFIX": "/prod"
       },
